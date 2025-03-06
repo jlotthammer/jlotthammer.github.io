@@ -1,8 +1,9 @@
 ---
 layout: post
-date: 2015-10-22 15:59:00-0400
+# title: title: A long announcement with details
+date: 2025-03-06 04:35:49-0400
 inline: true
 related_posts: false
 ---
 
-A simple inline announcement.
+Initial record of my musings
