@@ -32,6 +32,23 @@ layout: default
             cache_bust=true
           %}
         {% endif %}
+        {% if page.cv_pdf %}
+          <div style="margin-top: 1rem; text-align: center;">
+            <a
+              class="btn btn-custom"
+              style="color: var(--title-color-light); border: 2px solid var(--title-color-light); opacity: 0.8;"
+              {% if page.cv_pdf contains '://' %}
+                href="{{ page.cv_pdf }}"
+              {% else %}
+                href="{{ page.cv_pdf | prepend: 'assets/pdf/' | relative_url }}"
+              {% endif %}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              curriculum vitae
+            </a>
+          </div>
+        {% endif %}
         {% if page.profile.more_info %}
           <div class="more-info">{{ page.profile.more_info }}</div>
         {% endif %}
