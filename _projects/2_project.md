@@ -1,9 +1,9 @@
 ---
 layout: page
-title: project 2
-description: a project with a background image and giscus comments
-img: assets/img/3.jpg
-importance: 2
+title: A deep-learning based approach for predicting conformational properties directly from sequence.
+# description: A deep-learning based approach for predicting conformational properties directly from sequence.
+img: assets/img/albatross.png
+# importance: 2
 category: work
 giscus_comments: true
 ---
