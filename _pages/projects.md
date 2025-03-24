@@ -2,10 +2,10 @@
 layout: page
 title: projects
 permalink: /projects/
-description: A growing collection of your cool projects.
+description: <h5>A flock of special-purpose built computational tools dedicated to characterizing the molecular and cellular biophysical basis of disordered protein function.<h5><br>
 nav: true
-nav_order: 3
-display_categories: [work, fun]
+nav_order: 1
+# display_categories: [work, fun]
 horizontal: false
 ---
 
