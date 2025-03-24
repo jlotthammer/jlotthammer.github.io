@@ -7,6 +7,7 @@ tags: math code
 categories: coming-soon
 related_posts: false
 giscus_comments: true
+citation: true
 
 featured: true
 mermaid:
