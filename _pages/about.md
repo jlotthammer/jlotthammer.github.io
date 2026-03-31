@@ -12,7 +12,7 @@ profile:
   #   <p>NSF GRFP Fellow</p>
   #   <p>Frontera Computational Sciences Fellow</p>
     
-cv_pdf: "shortened_CV.pdf"
+cv_pdf: "CV_Academic_JL.pdf"
 
 selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
