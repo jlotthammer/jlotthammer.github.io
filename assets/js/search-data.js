@@ -30,18 +30,7 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/publications/";
           },
-        },{id: "post-a-visual-introduction-to-denoising-diffusion-models",
-      
-        title: "A visual introduction to denoising diffusion models",
-      
-      description: "A soon-to-be exciting post",
-      section: "Posts",
-      handler: () => {
-        
-          window.location.href = "/blog/2025/diffusion/";
-        
-      },
-    },{id: "news-soliloquizing-into-the-digital-ether",
+        },{id: "news-soliloquizing-into-the-digital-ether",
           title: 'Soliloquizing into the digital ether',
           description: "",
           section: "News",},{id: "projects-a-python-library-for-disordered-protein-sequence-based-analysis-and-predictions",
