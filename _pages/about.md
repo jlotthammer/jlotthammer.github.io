@@ -29,9 +29,13 @@ latest_posts:
 ---
 
 
-Hi, I'm Jeff! I'm an NSF GRFP and NSF Frontera Computational Sciences fellow finishing up my PhD in Computational Systems Biology at WUSTL.
+Hi, I'm Jeff Lotthammer! I'm a __Computational Protein Design Scientist__ at Lawrence Livermore National Laboratory (LLNL), where I work as part of the GUIDE team (Generative Unconstrained Intelligent Drug Engineering).
 
-Primarily interested in __quantitative molecular biology__, focusing on the intersection of experiments with Bayesian machine learning and generative models.
+I previously completed my PhD in Alex Holehouse's lab in the Computational Systems Biology program at Washington University in St. Louis (WUSTL), where I was generously supported by the NSF Graduate Research Fellowship (GRFP) and the NSF Frontera Computational Sciences Fellowship. 
 
-During my PhD, I've been fortunate enough to work with some *incredibly talented* people. This has given me the opportunity to work on all sorts of projects ranging from mechanistic biology to protein engineering for both biosynthetic technological and translational therapies to computational methods development and essentially anything in between.
+During my PhD, I was fortunate enough to work with some *incredibly talented* people. This gave me the opportunity to work on projects spanning mechanistic biology, protein engineering for biosynthetic and therapeutic applications. This led to the development of a '*flock*' of computational approaches (ALBATROSS, FINCHES, STARLING, GOOSE, and RAVEN) used by the disordered protein community.
+
+More broadly, I have longstanding interests in *__quantitative molecular biology__*. I believe that by grounding computational approaches with rigorous experimental validation we can greatly accelerate both basic scientitfic discovery and bespoke engineering solutions in translational medicine and biosynthetic technologies.
+
+
 

@@ -1,0 +1,48 @@
+name: DOI backfill
+
+# Manual, re-runnable: looks up missing `doi` fields for existing entries in
+# _bibliography/papers.bib via Crossref and proposes them as a pull request.
+# DOIs are what the Altmetric and Dimensions badges resolve against, so entries
+# without one render no badges.
+#
+# Entries whose title has no exact Crossref match are listed in the run summary
+# for manual handling rather than guessed at.
+
+on:
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  backfill:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Look up missing DOIs
+        run: |
+          python .github/scripts/backfill_dois.py 2>&1 | tee "$RUNNER_TEMP/backfill.log"
+          {
+            echo '```'
+            cat "$RUNNER_TEMP/backfill.log"
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Open pull request if papers.bib changed
+        uses: peter-evans/create-pull-request@v6
+        with:
+          branch: doi-backfill
+          commit-message: "Add DOIs to bibliography entries"
+          title: "Backfill DOIs in papers.bib"
+          body: >
+            DOIs looked up from Crossref by exact title match. Each was inserted
+            without touching any other field. Spot-check a few against the
+            publisher pages before merging; entries with no exact title match
+            were skipped and are listed in the workflow run summary.
+          add-paths: _bibliography/papers.bib

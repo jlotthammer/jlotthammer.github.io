@@ -11,3 +11,5 @@ assets/libs/
 node_modules/
 vendor
 .idea
+sync_notes.md
+__pycache__/

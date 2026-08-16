@@ -1,0 +1,51 @@
+name: Publication sync
+
+# Monthly check for new publications on ORCID. New papers are appended to
+# _bibliography/papers.bib and proposed as a pull request for review. Merging
+# the PR triggers the normal site deploy, which regenerates the publications
+# page and its SEO metadata.
+#
+# The script also reports preprint entries that ORCID now shows as published,
+# and possible duplicates. Those need editing in place, so they appear in the
+# run summary and PR body rather than being changed automatically.
+#
+# One-time repo setting required: Settings -> Actions -> General ->
+# "Allow GitHub Actions to create and approve pull requests".
+
+on:
+  schedule:
+    - cron: "0 8 1 * *" # 1st of each month, 08:00 UTC
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      # Run from the repo root so BIB_PATH resolves; Python puts the script's
+      # own directory on sys.path, so `import bibfile` still works.
+      - name: Sync publications from ORCID
+        run: python .github/scripts/sync_publications.py --notes-path "$RUNNER_TEMP/sync_notes.md"
+
+      # Reported alongside the PR so findings are visible even when nothing was
+      # appended and therefore no PR is created.
+      - name: Publish notes to run summary
+        run: cat "$RUNNER_TEMP/sync_notes.md" >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Open pull request if papers.bib changed
+        uses: peter-evans/create-pull-request@v6
+        with:
+          branch: publication-sync
+          commit-message: "Add new publications from ORCID"
+          title: "New publications from ORCID"
+          body-path: ${{ runner.temp }}/sync_notes.md
+          add-paths: _bibliography/papers.bib
