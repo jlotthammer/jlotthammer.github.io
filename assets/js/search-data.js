@@ -68,11 +68,18 @@ ninja.data = [{
           window.open("https://github.com/jlotthammer", "_blank");
         },
       },{
+        id: 'social-linkedin',
+        title: 'LinkedIn',
+        section: 'Socials',
+        handler: () => {
+          window.open("https://www.linkedin.com/in/jefflotthammer", "_blank");
+        },
+      },{
         id: 'social-scholar',
         title: 'Google Scholar',
         section: 'Socials',
         handler: () => {
-          window.open("https://scholar.google.com/citations?user=xtzmpqwAAAAJ&hl", "_blank");
+          window.open("https://scholar.google.com/citations?user=xtzmpqwAAAAJ", "_blank");
         },
       },{
         id: 'social-orcid',
